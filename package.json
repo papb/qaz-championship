@@ -1,0 +1,24 @@
+{
+  "name": "qaz-championship",
+  "version": "0.0.1",
+  "description": "A simple game in JavaScript: how fast can you type?",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test:lint": "eslint .",
+    "test": "npm run test:lint"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Pedro Augusto de Paula Barbosa",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-plugin-node": "^7.0.1"
+  }
+}
