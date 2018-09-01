@@ -7,6 +7,14 @@
     "node": ">=6.0.0"
   },
   "scripts": {
+    "build:es6:dev": "browserify --debug frontend/index.js -o public/scripts/script.js",
+    "build:es6:min": "uglifyjs public/scripts/script.js --compress --mangle --source-map -o public/scripts/script.min.js",
+    "build:es6": "run-s build:es6:*",
+    "build:es5:dev": "browserify --debug frontend/index.js -o public/scripts/script.es5.js -t [ babelify --presets [ \"babel-preset-env\" ] ]",
+    "build:es5:min": "uglifyjs public/scripts/script.es5.js --compress --mangle --source-map -o public/scripts/script.es5.min.js",
+    "build:es5": "run-s build:es5:*",
+    "build:crlf": "node helpers/ensure-crlf.js",
+    "build": "run-p build:es6 build:es5 && npm run build:crlf",
     "start": "node index.js",
     "test:lint": "eslint .",
     "test": "npm run test:lint"
@@ -18,8 +26,14 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-preset-env": "^1.0.0",
+    "babelify": "^8.0.0",
+    "browserify": "^16.0.0",
     "eslint": "^5.5.0",
-    "eslint-plugin-node": "^7.0.1"
+    "eslint-plugin-node": "^7.0.1",
+    "npm-run-all": "^4.1.3",
+    "uglify-es": "^3.0.0"
   },
   "dependencies": {
     "app-root-path": "^2.1.0",
