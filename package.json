@@ -1,6 +1,6 @@
 {
   "name": "qaz-championship",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A simple game in JavaScript: how fast can you type?",
   "main": "index.js",
   "engines": {
