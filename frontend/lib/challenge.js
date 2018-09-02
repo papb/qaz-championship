@@ -1,46 +1,11 @@
 "use strict";
 
-const wait = require("./../helpers/wait");
 const ellipsis = require("./../helpers/ellipsis");
 const sortBy = require("./../helpers/sort-by");
 const sanitizeHTML = require("./../helpers/sanitize-html");
+const http = require("./../helpers/http");
 
 const Ranking = require("./ranking");
-
-function fetchAll() {
-    const challenge_mocks = [
-        "SOME CHALLENGE",
-        "SOME OTHER CHALLENGE",
-        "QAZWSXEDC",
-        "QAZWSXEDCRFVTGBYHNUJMIKOL",
-        "QWERTYUIOP",
-        "3.141592653589793238",
-        "TO BE OR NOT TO BE"
-    ];
-    const player_mocks = [
-        "some_user",
-        "another_user",
-        "someone",
-        "nobody",
-        "player_x",
-        "player_y",
-        "player_z"
-    ];
-    return wait(1000).then(() => {
-        return challenge_mocks.map((value, index) => {
-            return {
-                name: value,
-                id: index,
-                rankings: player_mocks.map(value => {
-                    return {
-                        username: value,
-                        millis: Math.floor(Math.random() * 10000)
-                    };
-                })
-            };
-        });
-    });
-}
 
 class Challenge {
 
@@ -57,7 +22,7 @@ class Challenge {
     }
 
     static getAll() {
-        return fetchAll().then(all => {
+        return http.get("/api/getChallenges").then(all => {
             all = all.map(c => new Challenge(c));
             return sortBy(all, x => x.name);
         });
@@ -73,11 +38,29 @@ class Challenge {
         `;
     }
 
-    addToRanking(username, millis) {
-        const newRankingEntry = new Ranking({ username, millis });
-        this.rankings.push(newRankingEntry);
+    registerRanking(username, millis) {
+        const currentUserRanking = this.rankings.find(r => r.username === username);
+
+        if (currentUserRanking && currentUserRanking.millis <= millis) return;
+
+        if (currentUserRanking) {
+            currentUserRanking.millis = millis;
+        } else {
+            const newRankingEntry = new Ranking({ username, millis });
+            this.rankings.push(newRankingEntry);
+        }
+
         sortBy(this.rankings, x => x.millis);
-        // return newRankingEntry;
+
+        http.post("/api/registerRanking", {
+            username: username,
+            millis: millis,
+            challengeId: this.id
+        }).catch(error => {
+            const message = "There was an error when uploading your ranking to the database: your score will only be kept locally. Check your internet connection.";
+            window.alert(message);
+            console.error("Error:", error);
+        });
     }
 
 }

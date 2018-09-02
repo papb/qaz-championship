@@ -48,7 +48,7 @@ keyboard.setOnWin(() => {
     elements.yourTyping.innerHTML = keyboard.getCurrentString();
     const millis = timer.end();
     timer.color("green");
-    currentChallenge.addToRanking(getCurrentUser(), millis);
+    currentChallenge.registerRanking(getCurrentUser(), millis);
     reloadRankings(currentChallenge);
     keyboard.beReady(currentChallenge.name);
 });
