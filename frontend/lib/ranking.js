@@ -5,8 +5,7 @@ const sanitizeHTML = require("./../helpers/sanitize-html");
 
 class Ranking {
 
-    constructor({ id, username, millis }) {
-        this.id = id;
+    constructor({ username, millis }) {
         this.username = username;
         this.millis = millis;
     }

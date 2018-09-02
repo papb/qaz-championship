@@ -6,7 +6,8 @@ const elementIds = [
     "yourTyping",
     "loading",
     "pageContent",
-    "challenges"
+    "challenges",
+    "username"
 ];
 
 const elements = {};

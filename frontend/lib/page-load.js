@@ -5,17 +5,26 @@ const Challenge = require("./challenge");
 const keyboard = require("./keyboard");
 const timer = require("./timer");
 const elements = require("./elements");
+const ellipsis = require("./../helpers/ellipsis");
 
 let allChallenges = undefined;
 let currentChallenge = undefined;
+
+function getCurrentUser() {
+    return ellipsis(elements.username.value || "anonymous", 30);
+}
 
 function getChallengeById(id) {
     return allChallenges ? allChallenges.find(c => c.id === id) : null;
 }
 
-function activateChallenge(challenge) {
+function reloadRankings(challenge) {
     elements.rankings.innerHTML = challenge.rankings.join("");
+}
+
+function activateChallenge(challenge) {
     elements.goalString.innerHTML = challenge.name;
+    reloadRankings(challenge);
     keyboard.beReady(challenge.name);
     currentChallenge = challenge;
     timer.reset();
@@ -37,8 +46,10 @@ keyboard.setOnProgress(() => {
 keyboard.setOnWin(() => {
     elements.yourTyping.style.color = "green";
     elements.yourTyping.innerHTML = keyboard.getCurrentString();
-    timer.end();
+    const millis = timer.end();
     timer.color("green");
+    currentChallenge.addToRanking(getCurrentUser(), millis);
+    reloadRankings(currentChallenge);
     keyboard.beReady(currentChallenge.name);
 });
 keyboard.setOnLose(() => {

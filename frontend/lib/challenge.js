@@ -31,9 +31,8 @@ function fetchAll() {
             return {
                 name: value,
                 id: index,
-                rankings: player_mocks.map((value, index) => {
+                rankings: player_mocks.map(value => {
                     return {
-                        id: index,
                         username: value,
                         millis: Math.floor(Math.random() * 10000)
                     };
@@ -72,6 +71,13 @@ class Challenge {
                 </a>
             </div>
         `;
+    }
+
+    addToRanking(username, millis) {
+        const newRankingEntry = new Ranking({ username, millis });
+        this.rankings.push(newRankingEntry);
+        sortBy(this.rankings, x => x.millis);
+        // return newRankingEntry;
     }
 
 }
