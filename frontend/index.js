@@ -1,3 +1,2 @@
 "use strict";
-
-window.test = require("./main.js");
+window.onPageLoad = require("./lib/page-load");

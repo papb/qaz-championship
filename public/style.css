@@ -1,0 +1,104 @@
+html, body {
+    background-color: rgb(245,245,245);
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+}
+
+table.page > tbody > tr > td {
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.pagetitle {
+    text-align: center;
+    font-family: helvetica;
+    font-size: 32pt;
+    font-weight: bold;
+    font-variant: small-caps;
+    padding: 10px 0;
+}
+
+.box {
+    width: 80%;
+    height: 23px;
+    line-height: 23px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+#yourTyping {
+    border: 3px solid green;
+    color: #ffcc00;
+}
+
+#goal {
+    border: 3px solid purple;
+    color: purple;
+}
+
+#timer {
+    border: 3px solid blue;
+    color: blue;
+}
+
+#rankings {
+    width: 80%;
+    height: 70%;
+    border: 2px solid black;
+    margin: 0 auto;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+#rankings > div {
+    height: 50px;
+    line-height: 50px;
+}
+
+#challenges {
+    overflow-y: scroll;
+}
+
+.challengeRow {
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 40px;
+    background-color: green;
+}
+
+.challengeRow a {
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;
+}
+
+.challengeRow:nth-child(odd) a div {
+    background-color: rgb(220,220,220);
+}
+.challengeRow:nth-child(even) a div {
+    background-color: white;
+}
+
+.challengeRow a:hover div {
+    background-color: rgb(190,190,190);
+}
