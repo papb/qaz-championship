@@ -7,13 +7,13 @@ QAZ Championship is a simple game written in JavaScript where the challenge is s
 
 It is available to be played online for free on [this link][server-url].
 
-QAZ Championship deployed with [now][now-url].
+QAZ Championship is deployed with [now][now-url].
 
 ## License
 
 MIT (c) Pedro Augusto de Paula Barbosa
 
-[server-url]: https://qaz-championship-naeqylojjs.now.sh/
+[server-url]: https://qaz-championship-rvvrzbjnbg.now.sh/
 [license-badge]: https://badgen.net/github/license/papb/qaz-championship
 [license-url]: LICENSE
 [version-badge]: https://badgen.net/github/release/papb/qaz-championship
