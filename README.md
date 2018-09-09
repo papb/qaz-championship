@@ -13,7 +13,7 @@ QAZ Championship is deployed with [now][now-url].
 
 MIT (c) Pedro Augusto de Paula Barbosa
 
-[server-url]: https://qaz-championship-rvvrzbjnbg.now.sh/
+[server-url]: https://qaz-championship-qrzzrpviqo.now.sh/
 [license-badge]: https://badgen.net/github/license/papb/qaz-championship
 [license-url]: LICENSE
 [version-badge]: https://badgen.net/github/release/papb/qaz-championship
