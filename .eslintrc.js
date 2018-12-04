@@ -1,4 +1,5 @@
-module.exports = {
+module.exports = 
+{
     "env": {
         "es6": true,
         "node": true
@@ -6,22 +7,22 @@ module.exports = {
     "plugins": ["node"],
     "extends": ["eslint:recommended", "plugin:node/recommended"],
     "rules": {
-        "node/exports-style": ["error", "module.exports"],
-        "no-console": "off",
-        "no-unused-vars": "off",
         "eqeqeq": ["error", "always"],
+        "no-console": "off",
+        "no-extra-semi": "error",
         "no-return-assign": "error",
         "no-throw-literal": "error",
         "no-unused-expressions": "error",
+        "no-var": "error",
         "no-warning-comments": [ "warn", {
             "terms": [ "TODO", "FIXME" ],
             "location": "anywhere"
         }],
-        "wrap-iife": ["error", "inside", { "functionPrototypeMethods": true }],
-        "strict": ["error", "global"],
+        "prefer-const": "error",
         "semi": ["error", "always"],
-        "no-extra-semi": "error",
-        "no-var": "error",
-        "prefer-const": "error"
+        "strict": ["error", "global"],
+        "wrap-iife": ["error", "inside", { "functionPrototypeMethods": true }],
+        "node/exports-style": ["error", "module.exports"],
+        "node/no-unsupported-features": "error"
     }
 };
