@@ -5,7 +5,7 @@
 
 QAZ Championship is a simple game written in JavaScript where the challenge is simply to see how fast you type.
 
-It is available to be played online for free on [this link][server-url].
+It is available to be played online for free on [this link][server-url]. Note: the page takes a while to load in the first time due to the way [now][now-url] works.
 
 QAZ Championship is deployed with [now][now-url].
 
