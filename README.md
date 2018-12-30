@@ -9,6 +9,8 @@ It is available to be played online for free on [this link][server-url]. Note: t
 
 QAZ Championship is deployed with [now][now-url].
 
+*Note: since servers deployed with (the free plan of) [now][now-url] are stateless, your scores will be automatically cleared after some time of inactivity, unfortunately.*
+
 ## License
 
 MIT (c) Pedro Augusto de Paula Barbosa
