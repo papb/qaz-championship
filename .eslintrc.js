@@ -13,6 +13,7 @@ module.exports =
         "no-return-assign": "error",
         "no-throw-literal": "error",
         "no-unused-expressions": "error",
+        "no-unused-vars": ["error", { "args": "none" }],
         "no-var": "error",
         "no-warning-comments": [ "warn", {
             "terms": [ "TODO", "FIXME" ],
